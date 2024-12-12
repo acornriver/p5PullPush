@@ -21,11 +21,31 @@ class Particle {
   }
   
   checkEdge() {
+    // 왼쪽 벽
+    if (this.position.x < 0) {
+      this.position.x = 0;
+      this.velocity.x *= -0.7; // 반발 계수 조정
+    }
+  
+    // 오른쪽 벽
+    if (this.position.x > width) {
+      this.position.x = width;
+      this.velocity.x *= -0.7;
+    }
+  
+    // 상단 벽
+    if (this.position.y < 0) {
+      this.position.y = 0;
+      this.velocity.y *= -0.7;
+    }
+  
+    // 하단 벽
     if (this.position.y > height) {
-      this.velocity.y *= -1;
       this.position.y = height;
+      this.velocity.y *= -0.7;
     }
   }
+  
 
   display() {
     stroke(255, this.lifespan);
