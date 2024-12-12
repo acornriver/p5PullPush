@@ -14,8 +14,14 @@ class ParticleSystem {
     }
   }
 
+
   run() {
     let confettiParticles = this.particles.filter(p => p instanceof Confetti);
+  
+      // Confetti 간 끌림 적용
+  for (let confetti of confettiParticles) {
+    confetti.pullForce(confettiParticles);
+  }
   
     // 충돌 검사
     for (let confetti of confettiParticles) {
