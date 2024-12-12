@@ -13,7 +13,7 @@ class Confetti extends Particle {
         let force = p5.Vector.sub(other.position, this.position); 
         let distance = constrain(force.mag(), 10, 100); 
         force.normalize();
-        let strength = (1 / distance) * 2; // 힘을 줄여서 지나치게 빠르게 날아가지 않도록 수정
+        let strength = (1 / distance) * 3; // 힘을 줄여서 지나치게 빠르게 날아가지 않도록 수정
         force.mult(strength);
         this.acceleration.add(force);
       }
@@ -29,18 +29,28 @@ class Confetti extends Particle {
     this.checkEdge();
   }
 
-  checkEdge() {
-    if (this.position.y > height) {
-      this.velocity.y *= -0.7;
-      this.position.y = height;
-      this.w = 40;
-      this.c = color(random(100, 200), random(100, 200), random(100, 200));
-      
-      let tones = ["C3", "E3", "G3", "C4", "E4", "G4", "C6", "D6", "E6"];
-      this.synth.triggerAttack(random(tones));
-      this.synth.triggerRelease(random(0.1, 0.8)); 
+  checkCollision(otherConfettiArray) {
+    for (let other of otherConfettiArray) {
+      if (other !== this) {
+        let distance = dist(this.position.x, this.position.y, other.position.x, other.position.y);
+        if (distance < (this.w / 2 + other.w / 2)) {
+          // 충돌 시 효과
+          this.velocity.y *= -0.7; // 반발 효과
+          this.position.y -= 5;   // 약간 위로 이동 (겹침 방지)
+          this.w = 40; // 크기 변경
+          this.c = color(random(100, 200), random(100, 200), random(100, 200));
+  
+          // 사운드 효과
+          let tones = ["C3", "E3", "G3", "C4", "E4", "G4", "C6", "D6", "E6"];
+          this.synth.triggerAttack(random(tones));
+          this.synth.triggerRelease(random(0.1, 0.8)); 
+  
+          break; // 하나의 충돌만 처리
+        }
+      }
     }
   }
+  
 
   display() {
     rectMode(CENTER);
