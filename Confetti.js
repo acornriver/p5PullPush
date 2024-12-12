@@ -41,11 +41,11 @@ class Confetti extends Particle {
           this.velocity.y *= -0.7;
           this.position.y -= 10;
           this.w = 40;
-          this.c = color(random(100, 200), random(100, 200), random(100, 200));
+          this.c = color(random(50, 100), random(50, 100), random(50, 100));
           this.hasCollided = true;
   
           // 사운드 효과
-          let tones = ["C3", "E3", "G3", "C4", "E4", "G4", "C6", "D6", "E6"];
+          let tones = ["C3","Eb3","G3","Bb3","C4","Eb4","G4","Bb4","D5","Eb5"];
           this.synth.triggerAttack(random(tones));
           this.synth.triggerRelease(random(0.1, 0.8)); 
   
