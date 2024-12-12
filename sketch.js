@@ -3,7 +3,7 @@
 let particleSystem;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(500, 500);
   particleSystem = new ParticleSystem(createVector(width / 2, height/2));
 }
 
