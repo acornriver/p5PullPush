@@ -41,7 +41,7 @@ class Confetti extends Particle {
         if (distance < (this.w / 2 + other.w / 2)) {
           // 충돌 시 효과
           this.velocity.y *= -0.7; // 반발 효과
-          this.position.y -= 5;   // 약간 위로 이동 (겹침 방지)
+          this.position.y -= 10;   // 약간 위로 이동 (겹침 방지)
           this.w = 40; // 크기 변경
           this.c = color(random(100, 200), random(100, 200), random(100, 200));
           this.hasCollided = true; // 충돌 상태로 설정
