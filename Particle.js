@@ -17,7 +17,7 @@ class Particle {
     this.position.add(this.velocity);
     this.lifespan -= 2;
     
-    // this.checkEdge();
+    this.checkEdge();
   }
   
   checkEdge() {
