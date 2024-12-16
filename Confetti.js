@@ -15,7 +15,7 @@ class Confetti extends Particle {
         let force = p5.Vector.sub(other.position, this.position); 
         let distance = constrain(force.mag(), 10, 100); 
         force.normalize();
-        let strength = (1 / distance) * 1; // 힘의 크기 조정
+        let strength = (1 / distance) * 2; // 힘의 크기 조정
         force.mult(strength);
         this.acceleration.add(force);
       }
