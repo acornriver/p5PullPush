@@ -5,14 +5,11 @@ let particleSystem;
 function setup() {
   createCanvas(800, 800);
   particleSystem = new ParticleSystem(createVector(width / 2, height/2));
-
-  strokeWeight(4);
-
-  line(0, 0, width, 0);
 }
 
 function draw() {
-  background(51);
+  background(30, 30, 30, 80);
+
   particleSystem.run();
 }
 
