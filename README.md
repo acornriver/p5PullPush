@@ -30,3 +30,8 @@ https://youtu.be/lrTWpLKEgFU?si=Zosu2QpQ6koFdfkz
     계속 걸어가시길,
 
     2022년 가을의 김연수
+
+
+직접 해보기
+
+https://acornriver.github.io/p5PullPush/
