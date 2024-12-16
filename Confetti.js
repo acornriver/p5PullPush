@@ -3,7 +3,7 @@ class Confetti extends Particle {
     super(position);
     this.w = 12;
     this.synth = new p5.MonoSynth();
-    this.c = color(255);
+    this.c = color('yellow');
     this.velocity = createVector(random(-2, 2), random(2, 4));
     this.hasCollided = false; // 충돌 여부 추적
   }
